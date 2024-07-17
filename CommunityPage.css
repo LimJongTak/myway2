@@ -1,14 +1,33 @@
+.body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Ensure the header uses space-between */
   align-items: center;
   padding: 20px;
   background-color: white;
 }
 
+.left-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  margin-right: 30px; /* Add margin-right to create space between logo and nav-links */
+}
+
 .logo img {
   max-height: 50px;
   width: auto;
+  margin-left: 50px; /* Existing margin */
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
 }
 
 .nav-links {
@@ -28,11 +47,27 @@
 }
 
 .mypage-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 10px 20px;
-  background-color: #f4f4f4;
+  background-color: white; /* Changed background color */
   border: none;
-  border-radius: 25px;
   cursor: pointer;
+  text-align: center;
+  font-size: 14px;
+  color: #6c757d;
+  text-decoration: none; /* Ensure no underline for link */
+}
+
+.mypage-button img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 5px;
+}
+
+.mypage-button span {
+  font-size: 14px;
 }
 
 .banner {
@@ -56,11 +91,19 @@
   gap: 20px;
   padding: 0;
   margin: 0;
+  margin-left: 30px; /* Move tabs 30px to the right */
 }
 
 .tabs ul li {
   font-size: 18px;
   cursor: pointer;
+  padding-bottom: 5px; /* Add padding for underline space */
+  font-weight: bold; /* Make text bold */
+}
+
+.tabs ul li.active {
+  color: #5555ff; /* Change color to #5555FF when active */
+  border-bottom: 3px solid #5555ff; /* Add bottom border when active and make it thicker */
 }
 
 .tab-divider {
@@ -77,18 +120,39 @@
   margin-top: 10px;
 }
 
+.tab-content {
+  padding-top: 20px; /* Add padding for separation */
+}
+
+.notice-content .notice-item {
+  display: flex;
+  justify-content: space-between; /* Ensure space between title and views */
+  padding: 10px 0; /* Add padding for separation */
+  border-bottom: 1px solid #ccc; /* Add border for separation */
+}
+
+.notice-content .notice-item p {
+  margin: 0;
+}
+
+.notice-content .notice-item .views {
+  color: #999; /* Change color of views */
+}
+
 .footer {
-  background-color: #f8f8f8;
+  background-color: white; /* Changed from #f8f8f8 to white */
   padding: 20px;
 }
 
 .footer-links {
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Changed from space-between to center */
+  gap: 10px; /* Add gap between columns */
 }
 
 .footer-column {
-  width: 18%;
+  width: 16%; /* Adjusted width */
+  padding: 0 10px; /* Add padding to columns */
 }
 
 .footer-column h3 {
@@ -110,6 +174,64 @@
   color: black;
   font-size: 14px;
   display: block;
+}
+
+.footer-logo img {
+  max-width: 150px;
+  margin-bottom: 10px;
+}
+
+.footer-app-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  margin-left: -10px; /* Move content 10px to the left */
+}
+
+.footer-social a img {
+  width: 32px;
+  height: 32px;
+}
+
+.footer-social a {
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.footer-social .youtube-button {
+  margin-left: -5px; /* Move YouTube button 5px to the left */
+}
+
+.footer-social .producer-button {
+  background-color: black; /* Add background color */
+  color: white; /* Add text color */
+  padding: 2.5px 10px; /* Adjust padding */
+  border-radius: 15px; /* Add border-radius */
+  text-decoration: none; /* Remove underline */
+  display: inline-block; /* Inline-block for better spacing */
+  text-align: center; /* Center text */
+  line-height: 27px; /* Adjust line-height for closer spacing */
+  height: 27px; /* Adjust height */
+  margin-left: -5px; /* Move Producer button 5px to the left */
+}
+
+.footer-social a::before {
+  content: "•";
+}
+
+.footer-social a::before {
+  color: transparent; /* Remove the dot before the text */
 }
 
 .copyright {
