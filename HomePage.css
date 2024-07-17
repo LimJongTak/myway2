@@ -1,0 +1,132 @@
+/* src/HomePage.css */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: white;
+}
+
+.logo img {
+  max-height: 50px;
+  width: auto;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+}
+
+.start-button {
+  padding: 10px 20px;
+  background-color: #f4f4f4;
+  border: none;
+  border-radius: 25px; /* Updated to 25px */
+  cursor: pointer;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.content-image {
+  width: 100%;
+  height: auto;
+}
+
+.dropdown .arrow {
+  margin-left: 5px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  display: none; /* Hidden by default */
+  flex-direction: column; /* Display items in a column */
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block; /* Show the menu on hover */
+}
+
+.dropdown-menu li {
+  padding: 10px 20px;
+}
+
+.dropdown-menu li a {
+  color: black;
+  text-decoration: none;
+  white-space: nowrap; /* Prevent wrapping */
+}
+
+.dropdown-menu li a:hover {
+  background-color: #f0f0f0;
+}
+
+.footer {
+  background-color: #f8f8f8;
+  padding: 20px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-column {
+  width: 18%;
+}
+
+.footer-column h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 5px;
+}
+
+.footer-column a {
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+  display: block;
+}
+
+.copyright {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: gray;
+}
