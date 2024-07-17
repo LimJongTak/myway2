@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import "./HomePage.css"; // Import your CSS file
 import image from "./images/homepage.PNG"; // Add the path to your image
 import logo from "./images/logo.PNG";
+import googlePlay from "./images/googleplay.PNG"; // Import Google Play image
+import appStore from "./images/appstore.PNG"; // Import App Store image
+import instagram from "./images/instagram.PNG"; // Import Instagram image
+import youtube from "./images/youtube.PNG"; // Import YouTube image
 
 const HomePage = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -46,13 +50,38 @@ const HomePage = () => {
             </li>
           </ul>
         </nav>
-        <button className="start-button">시작하기</button>
+        <Link to="/start" className="start-button">
+          시작하기
+        </Link>
       </header>
       <div className="content">
         <img src={image} alt="Content" className="content-image" />
       </div>
       <footer className="footer">
         <div className="footer-links">
+          <div className="footer-column footer-logo">
+            <img src={logo} alt="MyWay Logo" />
+            <div className="footer-app-links">
+              <a href="https://play.google.com/store">
+                <img src={googlePlay} alt="Google Play" />
+              </a>
+              <a href="https://www.apple.com/app-store/">
+                <img src={appStore} alt="App Store" />
+              </a>
+            </div>
+            <div className="footer-social">
+              <a href="https://instagram.com/takkk_2">
+                <img src={instagram} alt="Instagram" />
+              </a>
+              <a href="https://youtube.com">
+                <img src={youtube} alt="YouTube" />
+              </a>
+              <a href="#!" className="producer-button">
+                제작자
+              </a>{" "}
+              {/* Add this line */}
+            </div>
+          </div>
           <div className="footer-column">
             <h3>MyWay</h3>
             <ul>
