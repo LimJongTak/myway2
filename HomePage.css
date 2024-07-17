@@ -1,20 +1,23 @@
-/* src/HomePage.css */
-
-body {
+.body {
   margin: 0;
   font-family: Arial, sans-serif;
 }
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Changed from flex-start to space-between */
   align-items: center;
   padding: 20px;
   background-color: white;
 }
 
+.logo {
+  margin-right: 30px; /* Maintain this margin-right */
+}
+
 .logo img {
   max-height: 50px;
   width: auto;
+  margin-left: 50px; /* Existing margin */
 }
 
 .nav-links {
@@ -39,6 +42,9 @@ body {
   border: none;
   border-radius: 25px; /* Updated to 25px */
   cursor: pointer;
+  margin-left: auto; /* Ensure the button moves to the right end */
+  text-decoration: none; /* Remove underline for Link */
+  color: black; /* Add color for text */
 }
 
 .content {
@@ -90,17 +96,19 @@ body {
 }
 
 .footer {
-  background-color: #f8f8f8;
+  background-color: white; /* Changed from #f8f8f8 to white */
   padding: 20px;
 }
 
 .footer-links {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Changed to space-between */
+  gap: 10px; /* Add gap between columns */
 }
 
 .footer-column {
-  width: 18%;
+  width: 16%; /* Adjusted width */
+  padding: 0 10px; /* Add padding to columns */
 }
 
 .footer-column h3 {
@@ -111,10 +119,12 @@ body {
 .footer-column ul {
   list-style: none;
   padding: 0;
+  margin: 0; /* Remove default margin */
 }
 
 .footer-column ul li {
   margin-bottom: 5px;
+  line-height: 1.5; /* Adjust line-height for closer spacing */
 }
 
 .footer-column a {
@@ -122,6 +132,64 @@ body {
   color: black;
   font-size: 14px;
   display: block;
+}
+
+.footer-logo img {
+  max-width: 150px;
+  margin-bottom: 10px;
+}
+
+.footer-app-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  margin-left: -10px; /* Move content 10px to the left */
+}
+
+.footer-social a img {
+  width: 32px;
+  height: 32px;
+}
+
+.footer-social a {
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.footer-social .youtube-button {
+  margin-left: -5px; /* Move YouTube button 5px to the left */
+}
+
+.footer-social .producer-button {
+  background-color: black; /* Add background color */
+  color: white; /* Add text color */
+  padding: 2.5px 10px; /* Adjust padding */
+  border-radius: 15px; /* Add border-radius */
+  text-decoration: none; /* Remove underline */
+  display: inline-block; /* Inline-block for better spacing */
+  text-align: center; /* Center text */
+  line-height: 27px; /* Adjust line-height for closer spacing */
+  height: 27px; /* Adjust height */
+  margin-left: -5px; /* Move Producer button 5px to the left */
+}
+
+.footer-social a::before {
+  content: "•";
+}
+
+.footer-social a::before {
+  color: transparent; /* Remove the dot before the text */
 }
 
 .copyright {
