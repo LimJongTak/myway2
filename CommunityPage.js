@@ -1,34 +1,72 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./CommunityPage.css";
 import image from "./images/community.PNG";
 import logo from "./images/logo.PNG"; // Import the logo image
 import bannerImage from "./images/banner.PNG"; // Import the new banner image
+import mypageIcon from "./images/mypage.PNG"; // Import the mypage icon image
+import googlePlay from "./images/googleplay.PNG"; // Import Google Play image
+import appStore from "./images/appstore.PNG"; // Import App Store image
+import instagram from "./images/instagram.PNG"; // Import Instagram image
+import youtube from "./images/youtube.PNG"; // Import YouTube image
 
 const CommunityPage = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState("notice"); // Default to "notice"
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
   };
 
+  useEffect(() => {
+    setActiveTab("notice"); // Set default tab to "notice" on mount
+  }, []);
+
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+  };
+
   return (
     <div className="community-page">
       <header className="header">
-        <Link to="/" className="logo">
-          <img src={logo} alt="MyWay Logo" />
+        <div className="left-container">
+          <Link to="/" className="logo">
+            <img src={logo} alt="MyWay Logo" />
+          </Link>
+          <nav className="nav-container">
+            <ul className="nav-links">
+              <li
+                className="dropdown"
+                onMouseEnter={toggleDropdown}
+                onMouseLeave={toggleDropdown}
+              >
+                <a href="#!">
+                  산책로 <span className="arrow">v</span>
+                </a>
+                {dropdownOpen && (
+                  <ul className="dropdown-menu">
+                    <li>
+                      <a href="#!">산책로</a>
+                    </li>
+                    <li>
+                      <a href="#!">산책로 등록</a>
+                    </li>
+                    <li>
+                      <a href="#!">산책로 관리</a>
+                    </li>
+                  </ul>
+                )}
+              </li>
+              <li>
+                <Link to="/community">커뮤니티</Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <Link to="/mypage" className="mypage-button">
+          <img src={mypageIcon} alt="마이페이지" className="mypage-icon" />
+          <span>마이페이지</span>
         </Link>
-        <nav>
-          <ul className="nav-links">
-            <li>
-              <a href="#!">산책로</a>
-            </li>
-            <li>
-              <a href="/community">커뮤니티</a>
-            </li>
-          </ul>
-        </nav>
-        <button className="mypage-button">마이페이지</button>
       </header>
       <div className="banner">
         <img src={bannerImage} alt="산책이 일상으로" className="banner-image" />
@@ -36,18 +74,74 @@ const CommunityPage = () => {
       <div className="community-content">
         <div className="tabs">
           <ul>
-            <li>공지사항</li>
-            <li>자유게시판</li>
-            <li>Q&A</li>
+            <li
+              className={activeTab === "notice" ? "active" : ""}
+              onClick={() => handleTabClick("notice")}
+            >
+              공지사항
+            </li>
+            <li
+              className={activeTab === "freeboard" ? "active" : ""}
+              onClick={() => handleTabClick("freeboard")}
+            >
+              자유게시판
+            </li>
+            <li
+              className={activeTab === "qa" ? "active" : ""}
+              onClick={() => handleTabClick("qa")}
+            >
+              Q&A
+            </li>
           </ul>
           <hr className="tab-divider" /> {/* Added horizontal line */}
           <input type="text" placeholder="검색어를 입력하세요." />
         </div>
+        <div className="tab-content">
+          {activeTab === "notice" && (
+            <div className="notice-content">
+              <div className="notice-item">
+                <p>산책하Go! 기부하Go! 산책 챌린지</p>
+                <span className="views">조회수: 1234</span>
+              </div>
+            </div>
+          )}
+          {activeTab === "freeboard" && (
+            <div className="freeboard-content">
+              <p>자유게시판 내용을 여기에 추가하세요.</p>
+            </div>
+          )}
+          {activeTab === "qa" && (
+            <div className="qa-content">
+              <p>Q&A 내용을 여기에 추가하세요.</p>
+            </div>
+          )}
+        </div>
       </div>
       <footer className="footer">
         <div className="footer-links">
+          <div className="footer-column footer-logo">
+            <img src={logo} alt="MyWay Logo" />
+            <div className="footer-app-links">
+              <a href="https://play.google.com/store">
+                <img src={googlePlay} alt="Google Play" />
+              </a>
+              <a href="https://www.apple.com/app-store/">
+                <img src={appStore} alt="App Store" />
+              </a>
+            </div>
+            <div className="footer-social">
+              <a href="https://instagram.com/takkk_2">
+                <img src={instagram} alt="Instagram" />
+              </a>
+              <a href="https://youtube.com" className="youtube-button">
+                <img src={youtube} alt="YouTube" />
+              </a>
+              <a href="#!" className="producer-button">
+                제작자
+              </a>
+            </div>
+          </div>
           <div className="footer-column">
-            <h3>MyWay</h3>
             <ul>
               <li>
                 <a href="#!">MyWay 소개</a>
@@ -70,7 +164,7 @@ const CommunityPage = () => {
                 <a href="#!">산책로</a>
               </li>
               <li>
-                <a href="./CommunityPage.js">커뮤니티</a>
+                <Link to="/community">커뮤니티</Link>
               </li>
             </ul>
           </div>
