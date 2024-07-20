@@ -2,22 +2,23 @@
   margin: 0;
   font-family: Arial, sans-serif;
 }
+
 .header {
   display: flex;
-  justify-content: space-between; /* Changed from flex-start to space-between */
+  justify-content: space-between;
   align-items: center;
   padding: 20px;
   background-color: white;
 }
 
 .logo {
-  margin-right: 30px; /* Maintain this margin-right */
+  margin-right: 30px;
 }
 
 .logo img {
   max-height: 50px;
   width: auto;
-  margin-left: 50px; /* Existing margin */
+  margin-left: 50px;
 }
 
 .nav-links {
@@ -40,24 +41,52 @@
   padding: 10px 20px;
   background-color: #f4f4f4;
   border: none;
-  border-radius: 25px; /* Updated to 25px */
+  border-radius: 25px;
   cursor: pointer;
-  margin-left: auto; /* Ensure the button moves to the right end */
-  text-decoration: none; /* Remove underline for Link */
-  color: black; /* Add color for text */
+  margin-left: auto;
+  text-decoration: none;
+  color: black;
 }
 
 .content {
   display: flex;
   justify-content: center;
-  padding: 20px;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  position: relative; /* Add relative positioning */
 }
 
 .content-image {
-  width: 100%;
+  width: 100vw;
   height: auto;
+  display: block;
+  object-fit: cover;
 }
 
+.prev-button,
+.next-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  z-index: 1; /* Ensure buttons are above the image */
+}
+
+.prev-button {
+  left: 10px;
+}
+
+.next-button {
+  right: 10px;
+}
+
+/* Dropdown Menu Styles */
 .dropdown .arrow {
   margin-left: 5px;
 }
@@ -75,6 +104,7 @@
   margin: 0;
   display: none; /* Hidden by default */
   flex-direction: column; /* Display items in a column */
+  z-index: 1; /* Ensure dropdown is above other content */
 }
 
 .dropdown:hover .dropdown-menu {
@@ -96,19 +126,19 @@
 }
 
 .footer {
-  background-color: white; /* Changed from #f8f8f8 to white */
+  background-color: white;
   padding: 20px;
 }
 
 .footer-links {
   display: flex;
-  justify-content: space-between; /* Changed to space-between */
-  gap: 10px; /* Add gap between columns */
+  justify-content: space-between;
+  gap: 10px;
 }
 
 .footer-column {
-  width: 16%; /* Adjusted width */
-  padding: 0 10px; /* Add padding to columns */
+  width: 16%;
+  padding: 0 10px;
 }
 
 .footer-column h3 {
@@ -119,12 +149,12 @@
 .footer-column ul {
   list-style: none;
   padding: 0;
-  margin: 0; /* Remove default margin */
+  margin: 0;
 }
 
 .footer-column ul li {
   margin-bottom: 5px;
-  line-height: 1.5; /* Adjust line-height for closer spacing */
+  line-height: 1.5;
 }
 
 .footer-column a {
@@ -150,7 +180,6 @@
   display: flex;
   gap: 10px;
   margin-top: 10px;
-  margin-left: -10px; /* Move content 10px to the left */
 }
 
 .footer-social a img {
@@ -168,20 +197,20 @@
 }
 
 .footer-social .youtube-button {
-  margin-left: -5px; /* Move YouTube button 5px to the left */
+  margin-left: 0px;
 }
 
 .footer-social .producer-button {
-  background-color: black; /* Add background color */
-  color: white; /* Add text color */
-  padding: 2.5px 10px; /* Adjust padding */
-  border-radius: 15px; /* Add border-radius */
-  text-decoration: none; /* Remove underline */
-  display: inline-block; /* Inline-block for better spacing */
-  text-align: center; /* Center text */
-  line-height: 27px; /* Adjust line-height for closer spacing */
-  height: 27px; /* Adjust height */
-  margin-left: -5px; /* Move Producer button 5px to the left */
+  background-color: black;
+  color: white;
+  padding: 2.5px 10px;
+  border-radius: 15px;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  line-height: 27px;
+  height: 27px;
+  margin-left: 0px;
 }
 
 .footer-social a::before {
@@ -189,7 +218,7 @@
 }
 
 .footer-social a::before {
-  color: transparent; /* Remove the dot before the text */
+  color: transparent;
 }
 
 .copyright {
