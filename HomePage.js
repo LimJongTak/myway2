@@ -1,18 +1,28 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./HomePage.css"; // Import your CSS file
-import image from "./images/homepage.PNG"; // Add the path to your image
+import "./HomePage.css";
+import image1 from "./images/homepage.PNG";
+import image2 from "./images/secondImage.PNG"; // Add more images as needed
 import logo from "./images/logo.PNG";
-import googlePlay from "./images/googleplay.PNG"; // Import Google Play image
-import appStore from "./images/appstore.PNG"; // Import App Store image
-import instagram from "./images/instagram.PNG"; // Import Instagram image
-import youtube from "./images/youtube.PNG"; // Import YouTube image
+import googlePlay from "./images/googleplay.PNG";
+import appStore from "./images/appstore.PNG";
+import instagram from "./images/instagram.PNG";
+import youtube from "./images/youtube.PNG";
 
 const HomePage = () => {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const images = [image1, image2]; // Add more images to the array
 
-  const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
+  const handlePrevClick = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
+  };
+
+  const handleNextClick = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+    );
   };
 
   return (
@@ -23,27 +33,21 @@ const HomePage = () => {
         </Link>
         <nav>
           <ul className="nav-links">
-            <li
-              className="dropdown"
-              onMouseEnter={toggleDropdown}
-              onMouseLeave={toggleDropdown}
-            >
+            <li className="dropdown">
               <a href="#!">
                 산책로 <span className="arrow">v</span>
               </a>
-              {dropdownOpen && (
-                <ul className="dropdown-menu">
-                  <li>
-                    <a href="#!">산책로</a>
-                  </li>
-                  <li>
-                    <a href="#!">산책로 등록</a>
-                  </li>
-                  <li>
-                    <a href="#!">산책로 관리</a>
-                  </li>
-                </ul>
-              )}
+              <ul className="dropdown-menu">
+                <li>
+                  <a href="#!">산책로</a>
+                </li>
+                <li>
+                  <a href="#!">산책로 등록</a>
+                </li>
+                <li>
+                  <a href="#!">산책로 관리</a>
+                </li>
+              </ul>
             </li>
             <li>
               <Link to="/community">커뮤니티</Link>
@@ -55,7 +59,17 @@ const HomePage = () => {
         </Link>
       </header>
       <div className="content">
-        <img src={image} alt="Content" className="content-image" />
+        <button className="prev-button" onClick={handlePrevClick}>
+          &lt;
+        </button>
+        <img
+          src={images[currentImageIndex]}
+          alt="Content"
+          className="content-image"
+        />
+        <button className="next-button" onClick={handleNextClick}>
+          &gt;
+        </button>
       </div>
       <footer className="footer">
         <div className="footer-links">
@@ -73,13 +87,12 @@ const HomePage = () => {
               <a href="https://instagram.com/takkk_2">
                 <img src={instagram} alt="Instagram" />
               </a>
-              <a href="https://youtube.com">
+              <a href="https://youtube.com" className="youtube-button">
                 <img src={youtube} alt="YouTube" />
               </a>
               <a href="#!" className="producer-button">
                 제작자
-              </a>{" "}
-              {/* Add this line */}
+              </a>
             </div>
           </div>
           <div className="footer-column">
